@@ -1,3 +1,7 @@
+/*
+	백준 알고리즘 1002번: 터렛
+	통과한 코드
+*/
 #include <iostream>
 #include <cmath>
 #include <algorithm>
@@ -33,12 +37,12 @@ int main()
 		big = max(r1[i], r2[i]);
 		small = min(r1[i], r2[i]);
 
-		if (d == 0.0)
+		if (d == 0.0) // 중심이 같다
 		{
-			if (big == small)
-				result = -1;
+			if (big == small) 
+				result = -1; // 동일한 원일때
 			else
-				result = 0;
+				result = 0; // 동일하지 않은 원일 때
 		}
 		else
 		{
@@ -58,6 +62,8 @@ int main()
 
 /*
 	실패함. 왜지.
+	안되는 이유를 찾았다.
+	왜냐하면 두 점 사이의 거리를 구할 때 double이 아닌 int로 했기 때문!
 */
 //#include <iostream>
 //#include <cmath>
@@ -84,17 +90,17 @@ int main()
 //		cin >> x1[i] >> y1[i] >> r1[i] >> x2[i] >> y2[i] >> r2[i];
 //	}
 //
-//	int distance_two_point;
+//	double distance_two_point;
 //	int sum_r;
 //	int sub_r;
 //
 //	for (int i = 0; i < T; i++)
 //	{
-//		distance_two_point = (int) sqrt(pow(x1[i] - x2[i], 2) + pow(y1[i] - y2[i], 2));
+//		distance_two_point = sqrt(pow(x1[i] - x2[i], 2) + pow(y1[i] - y2[i], 2));
 //		sum_r = r1[i] + r2[i];
 //		sub_r = (r1[i] > r2[i]) ? (r1[i] - r2[i]) : (r2[i] - r1[i]);
 //
-//		if (distance_two_point == 0)
+//		if (distance_two_point == 0.0)
 //		{ // 중심이 일치 할 때
 //			if (r1[i] == r2[i])
 //			{ // 두 원이 똑같은 원 일때
@@ -121,14 +127,14 @@ int main()
 //				{ // 한 원이 다른 원 안에 있고 교점이 하나
 //					cout << "1" << endl;
 //				}
-//				else if (distance_two_point < sub_r)
+//				else if (distance_two_point > sub_r)
 //				{ // 한 원이 다른 원 안에 있지만 교점이 없음
-//					cout << "0" << endl;
+//					cout << "2" << endl;
 //				}
 //				else
 //				{ // 한 원이 다른 원 안에 있고 교점이 두개
 //				  // 두 원이 교점이 두개
-//					cout << "2" << endl;
+//					cout << "0" << endl;
 //				}
 //			}
 //		}
